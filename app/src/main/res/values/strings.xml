@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">GWS</string>
+    <string name="nama_rs">Rumah Sakit GWS</string>
+    <string name="intro_rs">Dengan lebih dari 100 Dokter Spesialis dan Sub Spesialis yang kompeten, kami berupaya untuk memberikan pelayanan medis yang tepat untuk setiap kebutuhan kesehatan anda.</string>
+    <string name="btn_buat_pertemuan">Buat Pertemuan</string>
 </resources>

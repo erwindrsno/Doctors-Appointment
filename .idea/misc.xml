@@ -6,7 +6,9 @@
         <entry key="..\:/UNPAR/SEM-5/P3B/TUBES01/Doctors-Appointment/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/roundedbutton.xml" value="0.319" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_detail_dokter.xml" value="0.4142335766423358" />
         <entry key="app/src/main/res/layout/fragment_dokter.xml" value="0.3546875" />
+        <entry key="app/src/main/res/layout/fragment_dokter_dialog.xml" value="0.3546875" />
         <entry key="app/src/main/res/layout/fragment_pertemuan.xml" value="0.3546875" />
         <entry key="app/src/main/res/layout/item_list_dokter.xml" value="0.3546875" />
         <entry key="app/src/main/res/layout/item_list_pertemuan.xml" value="0.3546875" />

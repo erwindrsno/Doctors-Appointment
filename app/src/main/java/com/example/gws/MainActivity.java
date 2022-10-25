@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.gws.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private ActivityMainBinding binding;
 
     @Override
@@ -15,5 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         View view = binding.getRoot();
         setContentView(view);
+
+        binding.btnBuatPertemuan.setOnClickListener(this);
+    }
+
+    @Override
+    protected void OnClick(View view){
+        if(view == binding.btnBuatPertemuan){
+            //pindah halaman bla3
+        }
     }
 }

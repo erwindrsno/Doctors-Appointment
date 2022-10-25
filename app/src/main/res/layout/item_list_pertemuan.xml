@@ -6,14 +6,14 @@
     android:orientation="horizontal">
 
     <LinearLayout
-        android:id="@+id/list_item_dokter"
+        android:id="@+id/list_item_pertemuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/size5">
 
         <TextView
-            android:id="@+id/item_name_dokter"
+            android:id="@+id/item_name_pertemuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -21,21 +21,19 @@
         </TextView>
 
         <TextView
-            android:id="@+id/item_detail_dokter"
+            android:id="@+id/item_detail_pertemuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="aaaa">
         </TextView>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/btn_star_dokter"
+    <CheckBox
+        android:id="@+id/cb_pertemuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:src="@android:drawable/btn_star_big_off">
-
-    </ImageView>
+        android:layout_alignParentRight="true">
+    </CheckBox>
 
 </RelativeLayout>
 

@@ -4,4 +4,7 @@
     <string name="intro_rs">Dengan lebih dari 100 Dokter Spesialis dan Sub Spesialis yang kompeten, kami berupaya untuk memberikan pelayanan medis yang tepat untuk setiap kebutuhan kesehatan anda.</string>
     <string name="btn_buat_pertemuan">Buat Pertemuan</string>
     <string name="btn_tambah_dokter">+</string>
+    <string name="btn_tambah_pertemuan">+</string>
+    <string name="list_dokter">List Dokter: </string>
+    <string name="list_pertemuan">List Pertemuan: </string>
 </resources>

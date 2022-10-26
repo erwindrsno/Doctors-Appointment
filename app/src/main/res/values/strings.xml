@@ -7,4 +7,25 @@
     <string name="btn_tambah_pertemuan">+</string>
     <string name="list_dokter">List Dokter: </string>
     <string name="list_pertemuan">List Pertemuan: </string>
+
+    <string name="header_buat_pertemuan">Buat Pertemuan</string>
+    <string name="nama_pasien">Nama:</string>
+    <string name="input_nama_pasien">Tulis nama anda</string>
+    <string name="gender_pasien">Jenis Kelamin:</string>
+    <string name="input_gender_pasien">Tulis jenis kelamin anda</string>
+    <string name="gender_pria">Pria</string>
+    <string name="gender_wanita">Wanita</string>
+    <string name="usia_pasien">Usia:</string>
+    <string name="input_usia_pasien">Tulis usia anda</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>

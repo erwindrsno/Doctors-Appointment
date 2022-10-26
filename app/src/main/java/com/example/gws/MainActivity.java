@@ -2,6 +2,7 @@ package com.example.gws;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,16 +14,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
         binding.btnBuatPertemuan.setOnClickListener(this);
     }
 
+
     @Override
-    protected void OnClick(View view){
-        if(view == binding.btnBuatPertemuan){
-            //pindah halaman bla3
-        }
+    public void onClick(View view) {
+
     }
 }

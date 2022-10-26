@@ -7,14 +7,14 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/cont_atas"
+        android:id="@+id/cont_atas_pertemuan"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_weight="10"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/tv_dokter"
-            android:text="@string/list_dokter"
+            android:id="@+id/tv_pertemuan"
+            android:text="@string/list_pertemuan"
             android:textSize="@dimen/size20"
             android:layout_margin="@dimen/size10"
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
 
         </TextView>
         <ListView
-            android:id="@+id/list_dokter"
+            android:id="@+id/list_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ListView>
@@ -31,6 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/cont_atas_pertemuan"
         android:layout_weight="1"
         android:gravity="right"
         android:orientation="vertical">
@@ -42,10 +43,10 @@
             android:layout_marginRight="@dimen/size5">
 
             <Button
-                android:id="@+id/btn_add_dokter"
+                android:id="@+id/btn_add_pertemuan"
                 android:layout_width="@dimen/size40"
                 android:layout_height="40dp"
-                android:text="@string/btn_tambah_dokter"
+                android:text="@string/btn_tambah_pertemuan"
                 android:backgroundTint="@color/grey"
                 android:background="@drawable/roundedbutton">
             </Button>

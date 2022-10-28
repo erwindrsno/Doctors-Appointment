@@ -28,7 +28,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/item_detail_dokter"
+            android:id="@+id/item_spesialis_dokter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="aaaa">

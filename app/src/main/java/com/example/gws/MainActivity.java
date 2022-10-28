@@ -13,7 +13,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = binding.getRoot();
-        setContentView(view);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        binding.btnAddPertemuan.setOnClickListener(this::onClickPertemuan);
     }
+
+    private void onClickPertemuan(View view) {
+
+    }
+
 }

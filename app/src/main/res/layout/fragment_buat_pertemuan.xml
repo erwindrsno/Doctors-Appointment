@@ -84,16 +84,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/usia_pasien"
+            android:text="@string/tanggal_lahir_pasien"
             android:textSize="20sp">
         </TextView>
 
-        <Spinner
-            android:id="@+id/dropdown_usia"
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </Spinner>
+            android:layout_height="wrap_content"
+            android:text="JAN 01 2020"
+            android:textSize="20sp"
+            style="?android:spinnerStyle">
+        </Button>
 
     </LinearLayout>
 

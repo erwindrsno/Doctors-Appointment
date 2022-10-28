@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_nama_rs"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/nama_rs"
-        android:textAlignment="center"
-        android:textSize="35sp"
-        android:fontFamily="sans-serif-black"
-        android:layout_marginTop="70dp">
-    </TextView>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_deskripsi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/intro_rs"
-        android:textSize="20sp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:justificationMode="inter_word"
-        android:layout_below="@+id/tv_nama_rs"
-        android:layout_marginTop="@android:dimen/app_icon_size">
-    </TextView>
+    </FrameLayout>
 
-    <Button
-        android:id="@+id/btn_buat_pertemuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
-        android:backgroundTint="@color/grey"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/btn_buat_pertemuan"
-        android:textSize="15sp"></Button>
-
-</RelativeLayout>
+</LinearLayout>

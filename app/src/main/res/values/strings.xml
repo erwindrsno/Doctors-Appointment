@@ -15,7 +15,7 @@
     <string name="input_gender_pasien">Tulis jenis kelamin anda</string>
     <string name="gender_pria">Pria</string>
     <string name="gender_wanita">Wanita</string>
-    <string name="usia_pasien">Usia:</string>
+    <string name="tanggal_lahir_pasien">Tanggal lahir:</string>
     <string name="input_usia_pasien">Tulis usia anda</string>
 
     <string-array name="planets_array">

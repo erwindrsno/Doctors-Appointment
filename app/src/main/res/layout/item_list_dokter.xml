@@ -4,12 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/btn_star_dokter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/btn_star_big_off">
+    </ImageView>
 
     <LinearLayout
         android:id="@+id/list_item_dokter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_toRightOf="@id/btn_star_dokter"
         android:layout_marginLeft="@dimen/size5">
 
         <TextView
@@ -29,12 +36,11 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/btn_star_dokter"
+        android:id="@+id/btn_call_dokter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:src="@android:drawable/btn_star_big_off">
-
+        android:src="@android:drawable/sym_action_call">
     </ImageView>
 
 </RelativeLayout>

@@ -17,6 +17,8 @@
     <string name="gender_wanita">Wanita</string>
     <string name="tanggal_lahir_pasien">Tanggal lahir:</string>
     <string name="input_usia_pasien">Tulis usia anda</string>
+    <string name="tv_birthdate">Tulis tanggal lahir anda</string>
+    <string name="tv_usia_pasien">Usia anda:</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>
@@ -28,4 +30,6 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+
+
 </resources>

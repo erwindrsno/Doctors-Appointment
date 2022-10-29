@@ -23,9 +23,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         this.binding = FragmentHomeBinding.inflate(inflater);
         View view = binding.getRoot();
-//        binding.btSubmit.setOnClickListener(this);
-        //untuk mengubah text dari argumen yang dikirimkan saat instansiasi fragment
-//        this.binding.tvTitleSecondFragment.setText(this.getArguments().getString("title"));
         binding.btnBuatPertemuan.setOnClickListener(this);
         return view;
     }
@@ -45,9 +42,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             result.putString("page","buatPertemuanFragment");
             this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
-//        result.putString("page","buatPertemuanFragment");
-//        result.putString("message",binding.etMessage.getText().toString());
-//        this.getParentFragmentManager().setFragmentResult("changePage",result);
-//        this.getParentFragmentManager().setFragmentResult("setMessage",result);
     }
 }

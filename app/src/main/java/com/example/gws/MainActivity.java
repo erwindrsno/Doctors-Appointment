@@ -16,7 +16,6 @@ import com.example.gws.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity{
     private ActivityMainBinding binding;
-//    private BuatPertemuanFragment buatPertemuanFragment;
     private HomeFragment homeFragment;
     private BuatPertemuanFragment buatPertemuanFragment;
     private FragmentManager fm;
@@ -27,10 +26,7 @@ public class MainActivity extends AppCompatActivity{
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-//
-//        binding.btnBuatPertemuan.setOnClickListener(this);
-//
-//        this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
+
         this.homeFragment = HomeFragment.newInstance("homeFragment");
         this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
 
@@ -76,21 +72,6 @@ public class MainActivity extends AppCompatActivity{
                 ft.hide(this.homeFragment);
             }
         }
-//        else if(page == 3){
-//            if(this.dialogFragment.isAdded()){
-//                ft.show(this.dialogFragment);
-//            }
-//            else{
-//                ft.add(R.id.fragment_container,this.dialogFragment)
-//                        .addToBackStack(null);
-//            }
-//            if(this.mainFragment.isAdded()){
-//                ft.hide(this.mainFragment);
-//            }
-//            if(this.leftFragment.isAdded()){
-//                ft.hide(this.leftFragment);
-//            }
-//        }
         ft.commit();
     }
 }

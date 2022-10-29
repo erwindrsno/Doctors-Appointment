@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
@@ -25,6 +27,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private DatePickerDialog.OnDateSetListener setListener;
+    private Spinner spinner;
 
     public BuatPertemuanFragment(){}
 
@@ -34,6 +37,12 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         View view = binding.getRoot();
 
         binding.btnTglLahir.setOnClickListener(this);
+
+        spinner = binding.spinnerDokter;
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BuatPertemuanFragment.this.getActivity(),
+                R.array.doctors_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         return view;
     }
 
@@ -65,6 +74,13 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             }, year, month, day);
             datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             datePickerDialog.show();
+        }
+
+        else if(view.getId() == binding.btnSubmit.getId()){
+            Bundle result = new Bundle();
+            result.putString("page","pertemuanFragment");
+            //result harus add input pasien
+            this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
     }
 }

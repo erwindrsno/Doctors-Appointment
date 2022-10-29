@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity{
             }
         }
         else if(page.equals("buatPertemuanFragment")){
-            Log.d("debugBuatPertemuanFragment","sya disini");
             if(this.buatPertemuanFragment.isAdded()){
                 ft.show(this.buatPertemuanFragment);
             }
@@ -71,6 +70,9 @@ public class MainActivity extends AppCompatActivity{
             if(this.homeFragment.isAdded()){
                 ft.hide(this.homeFragment);
             }
+        }
+        else if(page.equals("pertemuanFragment")){
+
         }
         ft.commit();
     }

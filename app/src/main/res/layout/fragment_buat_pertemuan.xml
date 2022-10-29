@@ -77,7 +77,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/input_tgl_lahir"
+        android:id="@+id/input_tgl_pertemuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -87,7 +87,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tanggal_lahir_pasien"
+            android:text="@string/tv_tanggal_pertemuan_pasien"
             android:textSize="20sp">
         </TextView>
 
@@ -95,7 +95,7 @@
             android:id="@+id/btn_tgl_lahir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_birthdate"
+            android:text="@string/input_pertemuan_pasien"
             android:textColor="@color/black"
             android:textSize="15sp"
             style="?android:spinnerStyle">
@@ -104,7 +104,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/usia_pasien"
+        android:id="@+id/waktu_pertemuan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -114,17 +114,76 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tv_usia_pasien"
+            android:text="@string/tv_waktu_pertemuan"
             android:textSize="20sp">
         </TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/et_waktu_pertemuan"
+            android:textColor="@color/black"
+            style="?android:spinnerStyle">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/keluhan_pasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="52 tahun">
+            android:text="@string/tv_keluhan_pasien"
+            android:textSize="20sp">
         </TextView>
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_keluhan_pasien"
+            android:hint="@string/hint_keluhan_pasien">
+        </EditText>
+
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pilih_dokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_pilih_dokter"
+            android:textSize="20sp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/spinner_dokter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_submit"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+
+    </Button>
 
 </LinearLayout>

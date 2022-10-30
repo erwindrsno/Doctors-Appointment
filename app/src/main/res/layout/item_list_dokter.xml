@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_item_dialog"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/size10">
+
+    <ImageView
+        android:id="@+id/btn_call_dokter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/sym_action_call"
+        android:layout_centerVertical="true"
+        >
+    </ImageView>
 
     <LinearLayout
         android:id="@+id/list_item_dokter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="@dimen/size5">
+        android:layout_toRightOf="@id/btn_call_dokter"
+        android:layout_marginLeft="5dp">
 
         <TextView
             android:id="@+id/item_name_dokter"
@@ -21,21 +33,41 @@
         </TextView>
 
         <TextView
-            android:id="@+id/item_detail_dokter"
+            android:id="@+id/item_spesialis_dokter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="aaaa">
         </TextView>
+
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/btn_star_dokter"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:src="@android:drawable/btn_star_big_off">
+        >
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/btn_star_dokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/btn_star_big_off"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/size10">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/btn_del_dokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_delete"
+            >
+        </ImageView>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
 

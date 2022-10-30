@@ -14,9 +14,9 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/tv_dokter"
-            android:text="@string/list_dokter"
-            android:textSize="@dimen/size20"
-            android:layout_margin="@dimen/size10"
+            android:text="List Dokter"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -39,14 +39,14 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/size5">
+            android:layout_marginRight="5dp">
 
             <Button
-                android:id="@+id/btn_add_dokter"
-                android:layout_width="@dimen/size40"
+                android:id="@+id/btn_add_new_dokter"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:text="@string/btn_tambah_dokter"
-                android:backgroundTint="@color/grey"
+                android:text="+"
+                android:backgroundTint="@color/black"
                 android:background="@drawable/roundedbutton">
             </Button>
         </RelativeLayout>

@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity{
     private HomeFragment homeFragment;
     private BuatPertemuanFragment buatPertemuanFragment;
     private PertemuanFragment pertemuanFragment;
+    private DokterFragment dokterFragment;
+    private AddDokterFragment addDokterFragment;
     private FragmentManager fm;
 
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle abdt;
-
-    private ArrayList<String> arrOfFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity{
         this.homeFragment = HomeFragment.newInstance("homeFragment");
         this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
         this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment");
+        this.dokterFragment = DokterFragment.newInstance("dokterFragment");
+        this.addDokterFragment = AddDokterFragment.newInstance("addDokterFragment");
         //inisialisasi fragment
 
         //Toolbar
@@ -90,6 +92,12 @@ public class MainActivity extends AppCompatActivity{
             if(this.pertemuanFragment.isAdded()){
                 ft.hide(this.pertemuanFragment);
             }
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }
+            if(this.addDokterFragment.isAdded()){
+                ft.hide(this.addDokterFragment);
+            }
         }
         else if(page.equals("buatPertemuanFragment")){
             if(this.buatPertemuanFragment.isAdded()){
@@ -104,6 +112,12 @@ public class MainActivity extends AppCompatActivity{
             }
             if(this.pertemuanFragment.isAdded()){
                 ft.hide(this.pertemuanFragment);
+            }
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }
+            if(this.addDokterFragment.isAdded()){
+                ft.hide(this.addDokterFragment);
             }
         }
         else if(page.equals("pertemuanFragment")){
@@ -120,12 +134,64 @@ public class MainActivity extends AppCompatActivity{
             if(this.buatPertemuanFragment.isAdded()){
                 ft.hide(this.buatPertemuanFragment);
             }
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }
+            if(this.addDokterFragment.isAdded()){
+                ft.hide(this.addDokterFragment);
+            }
+        }
+        else if(page.equals("dokterFragment")){
+            if(this.dokterFragment.isAdded()){
+                ft.show(this.dokterFragment);
+            }
+            else{
+                ft.add(binding.fragmentContainer.getId(),this.dokterFragment)
+                        .addToBackStack(null);
+            }
+            if(this.homeFragment.isAdded()) {
+                ft.hide(this.homeFragment);
+            }
+            if(this.buatPertemuanFragment.isAdded()){
+                ft.hide(this.buatPertemuanFragment);
+            }
+            if(this.pertemuanFragment.isAdded()){
+                ft.hide(this.pertemuanFragment);
+            }
+            if(this.addDokterFragment.isAdded()){
+                ft.hide(this.addDokterFragment);
+            }
+        }
+        else if(page.equals("addDokterFragment")){
+            if(this.addDokterFragment.isAdded()){
+                ft.show(this.addDokterFragment);
+            }
+            else{
+                ft.add(binding.fragmentContainer.getId(),this.addDokterFragment)
+                        .addToBackStack(null);
+            }
+            if(this.homeFragment.isAdded()) {
+                ft.hide(this.homeFragment);
+            }
+            if(this.buatPertemuanFragment.isAdded()){
+                ft.hide(this.buatPertemuanFragment);
+            }
+            if(this.pertemuanFragment.isAdded()){
+                ft.hide(this.pertemuanFragment);
+            }
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }
+        }
+        else if(page.equals("exit")){
+            closeApplication();
         }
         ft.commit();
     }
 
-    private void onClickPertemuan(View view) {
+    public void closeApplication(){
+        this.moveTaskToBack(true);
+        this.finish();
 
     }
-
 }

@@ -12,7 +12,6 @@ public class Pertemuan {
     private int umur;
     private String gender;
 
-
     public Pertemuan(Date tanggal, Time waktu, String namaPasien, String namaDokter, String keluhan, int umur, String gender) {
         this.tanggal = tanggal;
         this.waktu = waktu;

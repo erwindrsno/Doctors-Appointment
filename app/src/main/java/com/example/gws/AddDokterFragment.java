@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.gws.databinding.FragmentAddDokterBinding;
+
 public class AddDokterFragment extends Fragment {
     private FragmentAddDokterBinding binding;
     MainPresenter presenter;

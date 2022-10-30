@@ -1,7 +1,10 @@
 package com.example.gws;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
@@ -20,6 +23,10 @@ public class MainActivity extends AppCompatActivity{
     private BuatPertemuanFragment buatPertemuanFragment;
     private FragmentManager fm;
 
+    private Toolbar toolbar;
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle abdt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +36,18 @@ public class MainActivity extends AppCompatActivity{
 
         this.homeFragment = HomeFragment.newInstance("homeFragment");
         this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
+
+        //Toolbar
+        this.toolbar = binding.toolbar;
+        this.setSupportActionBar(toolbar);
+
+        this.drawer = binding.drawerLayout;
+
+        //tombol garis tiga
+        abdt = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.open_drawer,R.string.close_drawer);
+        drawer.addDrawerListener(abdt);
+        abdt.syncState();
+        //Toolbar
 
         this.fm = this.getSupportFragmentManager();
         FragmentTransaction ft = this.fm.beginTransaction();

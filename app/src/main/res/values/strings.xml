@@ -7,4 +7,34 @@
     <string name="btn_tambah_pertemuan">+</string>
     <string name="list_dokter">List Dokter: </string>
     <string name="list_pertemuan">List Pertemuan: </string>
+
+    <string name="header_buat_pertemuan">Buat Pertemuan</string>
+    <string name="nama_pasien">Nama:</string>
+    <string name="input_nama_pasien">Tulis nama anda</string>
+    <string name="gender_pasien">Jenis Kelamin:</string>
+    <string name="input_gender_pasien">Tulis jenis kelamin anda</string>
+    <string name="gender_pria">Pria</string>
+    <string name="gender_wanita">Wanita</string>
+    <string name="tv_tanggal_pertemuan_pasien">Tanggal pertemuan:</string>
+    <string name="input_pertemuan_pasien">DD/MM/YYYY</string>
+    <string name="tv_tanggal_pertemuan">Tanggal Pertemuan</string>
+    <string name="tv_waktu_pertemuan">Pilih waktu pertemuan:</string>
+    <string name="et_waktu_pertemuan">HH/MM</string>
+    <string name="tv_keluhan_pasien">Keluhan anda:</string>
+    <string name="hint_keluhan_pasien">Tuliskan keluhan anda</string>
+    <string name="tv_pilih_dokter">Pilih Dokter:</string>
+    <string name="hint_pilih_dokter">Silahkan memilih dokter</string>
+    <string name="btn_submit">ADD</string>
+
+    <string-array name="doctors_array">
+        <item>Dokter A</item>
+        <item>Dokter B</item>
+        <item>Dokter C</item>
+        <item>Dokter D</item>
+    </string-array>
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+
+
 </resources>

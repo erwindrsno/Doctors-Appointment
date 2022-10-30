@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/header_buat_pertemuan"
+        android:textSize="35sp"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginStart="10dp">
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/input_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nama_pasien"
+            android:textSize="20sp">
+        </TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_nama_pasien"
+            android:textSize="15sp">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/input_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_pasien"
+            android:textSize="20sp">
+        </TextView>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_pria"
+                android:textSize="15sp"
+                android:layout_weight="1">
+            </RadioButton>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gender_wanita"
+                android:textSize="15sp"
+                android:layout_weight="2">
+            </RadioButton>
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/input_tgl_pertemuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_tanggal_pertemuan_pasien"
+            android:textSize="20sp">
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_tgl_lahir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_pertemuan_pasien"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            style="?android:spinnerStyle">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/waktu_pertemuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_waktu_pertemuan"
+            android:textSize="20sp">
+        </TextView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/et_waktu_pertemuan"
+            android:textColor="@color/black"
+            style="?android:spinnerStyle">
+        </Button>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/keluhan_pasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_keluhan_pasien"
+            android:textSize="20sp">
+        </TextView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_keluhan_pasien"
+            android:hint="@string/hint_keluhan_pasien">
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pilih_dokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_pilih_dokter"
+            android:textSize="20sp">
+        </TextView>
+
+        <Spinner
+            android:id="@+id/spinner_dokter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_submit"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+
+    </Button>
+
+</LinearLayout>

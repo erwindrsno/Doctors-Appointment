@@ -63,23 +63,6 @@ class MenuAdapter extends BaseAdapter {
         return view;
     }
 
-//    @Override
-//    public View getView(int i, View view, ViewGroup viewGroup) {
-//        ViewHolder viewHolder;
-//        if (view == null){
-//            binding = ItemListMenuBinding.inflate(this.activity.getLayoutInflater(),viewGroup, false);
-//            view = binding.getRoot();
-//            viewHolder = new ViewHolder(binding);
-//            view.setTag(viewHolder);
-//        }
-//        else {
-//            viewHolder = (ViewHolder) view.getTag();
-//        }
-//        Log.d("debugGetItem","getView aman bro");
-//        viewHolder.updateView(this.getItem(i));
-//        return view;
-//    }
-
     public void addList(String str){
         this.listMenu.add(str);
         this.notifyDataSetChanged();
@@ -90,28 +73,30 @@ class MenuAdapter extends BaseAdapter {
 
         public ViewHolder(ItemListMenuBinding binding){
             this.binding= binding;
+            this.binding.tvMenu.setOnClickListener(this);
         }
 
         public void updateView(String menu){
-//            Log.d("debugUpdateView","masuk bos aman");
+            Log.d("debugUpdateView","masuk bos aman");
             this.binding.tvMenu.setText(menu);
-            this.binding.tvMenu.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view){
             Bundle result = new Bundle();
+            Log.d("debugMasukOnClick","masukOnClick");
             if(view.getId() == binding.tvMenu.getId()){
-                if(binding.tvMenu.getText().toString().equals("Home")){
+                if(binding.tvMenu.getText().equals("Home")){
+                    Log.d("debugHome","masukHome");
                     result.putString("page","homeFragment");
                 }
-                else if(binding.tvMenu.getText().toString().equals("Pertemuan")){
+                else if(binding.tvMenu.getText().equals("Pertemuan")){
                     result.putString("page","pertemuanFragment");
                 }
-                else if(binding.tvMenu.getText().toString().equals("Dokter")){
+                else if(binding.tvMenu.getText().equals("Dokter")){
                     result.putString("page","dokterFragment");
                 }
-                else if(binding.tvMenu.getText().toString().equals("Exit")){
+                else if(binding.tvMenu.getText().equals("Exit")){
                     result.putString("page","exit");
                 }
             }

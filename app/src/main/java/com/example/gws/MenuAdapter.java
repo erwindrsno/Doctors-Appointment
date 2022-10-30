@@ -33,7 +33,7 @@ class MenuAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listMenu.size();
+        return this.listMenu.size();
     }
 
     @Override
@@ -73,12 +73,11 @@ class MenuAdapter extends BaseAdapter {
 
         public ViewHolder(ItemListMenuBinding binding){
             this.binding= binding;
-            this.binding.tvMenu.setOnClickListener(this);
         }
 
         public void updateView(String menu){
-            Log.d("debugUpdateView","masuk bos aman");
             this.binding.tvMenu.setText(menu);
+            this.binding.tvMenu.setOnClickListener(this);
         }
 
         @Override
@@ -99,8 +98,8 @@ class MenuAdapter extends BaseAdapter {
                 else if(binding.tvMenu.getText().equals("Exit")){
                     result.putString("page","exit");
                 }
+                drawerFragment.getParentFragmentManager().setFragmentResult("changePage",result);
             }
-            notifyDataSetChanged();
         }
     }
 }

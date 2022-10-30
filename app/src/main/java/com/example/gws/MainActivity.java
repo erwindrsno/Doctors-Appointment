@@ -17,15 +17,20 @@ import android.view.View;
 
 import com.example.gws.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity{
     private ActivityMainBinding binding;
     private HomeFragment homeFragment;
     private BuatPertemuanFragment buatPertemuanFragment;
+    private PertemuanFragment pertemuanFragment;
     private FragmentManager fm;
 
     private Toolbar toolbar;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle abdt;
+
+    private ArrayList<String> arrOfFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,11 @@ public class MainActivity extends AppCompatActivity{
         View view = binding.getRoot();
         setContentView(view);
 
+        //inisialiasi fragment
         this.homeFragment = HomeFragment.newInstance("homeFragment");
         this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
+        this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment");
+        //inisialisasi fragment
 
         //Toolbar
         this.toolbar = binding.toolbar;
@@ -62,6 +70,7 @@ public class MainActivity extends AppCompatActivity{
                 String page = result.getString("page");
                 Log.d("debugPage",page);
                 changePage(page);
+                drawer.closeDrawers();
             }
         });
     }
@@ -73,10 +82,13 @@ public class MainActivity extends AppCompatActivity{
                 ft.show(this.homeFragment);
             }
             else{
-                ft.add(R.id.fragment_container,this.homeFragment);
+                ft.add(binding.fragmentContainer.getId(),this.homeFragment);
             }
             if(this.buatPertemuanFragment.isAdded()){
                 ft.hide(this.buatPertemuanFragment);
+            }
+            if(this.pertemuanFragment.isAdded()){
+                ft.hide(this.pertemuanFragment);
             }
         }
         else if(page.equals("buatPertemuanFragment")){
@@ -84,14 +96,30 @@ public class MainActivity extends AppCompatActivity{
                 ft.show(this.buatPertemuanFragment);
             }
             else{
-                ft.add(R.id.fragment_container,this.buatPertemuanFragment);
+                ft.add(binding.fragmentContainer.getId(),this.buatPertemuanFragment)
+                        .addToBackStack(null);
             }
             if(this.homeFragment.isAdded()){
                 ft.hide(this.homeFragment);
             }
+            if(this.pertemuanFragment.isAdded()){
+                ft.hide(this.pertemuanFragment);
+            }
         }
         else if(page.equals("pertemuanFragment")){
-
+            if(this.pertemuanFragment.isAdded()){
+                ft.show(this.pertemuanFragment);
+            }
+            else{
+                ft.add(binding.fragmentContainer.getId(),this.pertemuanFragment)
+                        .addToBackStack(null);
+            }
+            if(this.homeFragment.isAdded()) {
+                ft.hide(this.homeFragment);
+            }
+            if(this.buatPertemuanFragment.isAdded()){
+                ft.hide(this.buatPertemuanFragment);
+            }
         }
         ft.commit();
     }

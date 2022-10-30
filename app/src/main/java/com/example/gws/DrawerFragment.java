@@ -25,7 +25,7 @@ public class DrawerFragment extends Fragment{
         this.binding = FragmentDrawerBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
         this.menuAdapter = new MenuAdapter(this,inflater);
-        binding.lvMenu.setAdapter(this.menuAdapter);
+        binding.lvMenu.setAdapter(menuAdapter);
         menuAdapter.addList("Home");
         menuAdapter.addList("Pertemuan");
         menuAdapter.addList("Dokter");

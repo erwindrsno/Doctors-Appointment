@@ -18,14 +18,14 @@ import com.example.gws.databinding.ItemListMenuBinding;
 
 import java.util.ArrayList;
 
-class MenuAdapter extends BaseAdapter {
+class AdapterMenu extends BaseAdapter {
     private ArrayList<String> listMenu;
     private ItemListMenuBinding binding;
     private DrawerFragment drawerFragment;
     private LayoutInflater inflater;
     private Activity activity;
 
-    public MenuAdapter(DrawerFragment drawerFragment, LayoutInflater inflater){
+    public AdapterMenu(DrawerFragment drawerFragment, LayoutInflater inflater){
         this.listMenu = new ArrayList<>();
         this.drawerFragment = drawerFragment;
         this.inflater = inflater;

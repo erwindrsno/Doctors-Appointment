@@ -85,7 +85,7 @@ public class AdapterDokter extends BaseAdapter {
             binding.btnStarDokter.setOnClickListener(this::onClickStar);
             binding.btnCallDokter.setOnClickListener(this::onClickCall);
             binding.btnDelDokter.setOnClickListener(this::onClickDel);
-            binding.listItemDialog.setOnClickListener(this::onClickDetail);
+            binding.listItemDialogDokter.setOnClickListener(this::onClickDetail);
         }
 
         private void onClickDetail(View view) {

@@ -11,8 +11,9 @@ public class Pertemuan {
     private String keluhan;
     private int umur;
     private String gender;
+    private boolean done;
 
-    public Pertemuan(Date tanggal, Time waktu, String namaPasien, String namaDokter, String keluhan, int umur, String gender) {
+    public Pertemuan(Date tanggal, Time waktu, String namaPasien, String namaDokter, String keluhan, int umur, String gender, boolean done) {
         this.tanggal = tanggal;
         this.waktu = waktu;
         this.namaPasien = namaPasien;
@@ -20,6 +21,7 @@ public class Pertemuan {
         this.keluhan = keluhan;
         this.umur = umur;
         this.gender = gender;
+        this.done = done;
     }
 
 
@@ -77,5 +79,13 @@ public class Pertemuan {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }

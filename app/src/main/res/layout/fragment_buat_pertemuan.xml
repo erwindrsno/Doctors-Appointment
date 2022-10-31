@@ -168,12 +168,19 @@
             android:textSize="20sp">
         </TextView>
 
-        <Spinner
-            android:id="@+id/spinner_dokter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <Spinner-->
+<!--            android:id="@+id/spinner_dokter"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
-        </Spinner>
+<!--        </Spinner>-->
+        <TextView
+            android:id="@+id/tv_pilih_dokter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_pilih_dokter">
+
+        </TextView>
     </LinearLayout>
 
     <Button

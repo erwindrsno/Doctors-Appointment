@@ -3,17 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/size10">
 
     <LinearLayout
         android:id="@+id/list_item_pertemuan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/size5">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_name_pertemuan"
+            android:id="@+id/item_waktu_pertemuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -21,19 +21,39 @@
         </TextView>
 
         <TextView
-            android:id="@+id/item_detail_pertemuan"
+            android:id="@+id/item_nama_dokter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="aaaa">
         </TextView>
+
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/cb_pertemuan"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true">
-    </CheckBox>
+        android:orientation="horizontal"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        >
+
+        <ImageView
+            android:id="@+id/btn_del_pertemuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_delete"
+            android:layout_gravity="center">
+        </ImageView>
+
+        <CheckBox
+            android:id="@+id/btn_checkbox_pertemuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </CheckBox>
+
+
+    </LinearLayout>
 
 </RelativeLayout>
 

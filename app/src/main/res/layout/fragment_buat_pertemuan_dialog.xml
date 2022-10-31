@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="@dimen/size300"
+        android:layout_height="match_parent"
+        android:id="@+id/dialog_detail_pertemuan"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tv_waktu_tanggal_pertemuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Waktu dan Tanggal Pertemuan: "
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dokter_name_pertemuan_dialog"
+            android:text=""
+            android:layout_marginBottom="@dimen/size10"/>
+
+        <TextView
+            android:id="@+id/tv_pasien_name_pertemuan_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dokter_spesialis_dialog"
+            android:text="spesialis"
+            android:layout_marginBottom="@dimen/size10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nomor Dokter: "
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dokter_noHP_dialog"
+            android:text="nomor HP"
+            android:layout_marginBottom="@dimen/size10"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail: "
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dokter_detail_dialog"
+            android:text="detail"/>
+    </LinearLayout>
+</FrameLayout>

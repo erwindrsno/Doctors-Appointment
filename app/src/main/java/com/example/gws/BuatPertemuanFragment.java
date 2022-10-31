@@ -27,7 +27,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private DatePickerDialog.OnDateSetListener setListener;
-    private Spinner spinner;
+//    private Spinner spinner;
 
     public BuatPertemuanFragment(){}
 
@@ -37,12 +37,14 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         View view = binding.getRoot();
 
         binding.btnTglLahir.setOnClickListener(this);
+        binding.tvPilihDokter.setOnClickListener(this);
 
-        spinner = binding.spinnerDokter;
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BuatPertemuanFragment.this.getActivity(),
-                R.array.doctors_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+//        spinner = binding.spinnerDokter;
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BuatPertemuanFragment.this.getActivity(),
+//                R.array.doctors_array, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(adapter);
+
         return view;
     }
 
@@ -81,6 +83,10 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             result.putString("page","pertemuanFragment");
             //result harus add input pasien
             this.getParentFragmentManager().setFragmentResult("changePage",result);
+        }
+
+        else if(view.getId() == binding.tvPilihDokter.getId()){
+
         }
     }
 }

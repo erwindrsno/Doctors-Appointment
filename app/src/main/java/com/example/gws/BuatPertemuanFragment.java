@@ -19,14 +19,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.gws.databinding.FragmentBuatPertemuanBinding;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.zip.Inflater;
 
-public class BuatPertemuanFragment extends Fragment implements View.OnClickListener{
+public class BuatPertemuanFragment extends Fragment implements View.OnClickListener, InterfaceDokter{
     private FragmentBuatPertemuanBinding binding;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private DatePickerDialog.OnDateSetListener setListener;
+    private MainPresenter presenter;
 //    private Spinner spinner;
 
     public BuatPertemuanFragment(){}
@@ -35,6 +37,8 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         this.binding = FragmentBuatPertemuanBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+
+        this.presenter = new MainPresenter(this);
 
         binding.btnTglLahir.setOnClickListener(this);
         binding.btnPilihDokter.setOnClickListener(this);
@@ -88,5 +92,15 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             //result harus add input pasien
             this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
+    }
+
+    @Override
+    public void updateList(ArrayList<Dokter> dokters) {
+
+    }
+
+    @Override
+    public void resetAddForm() {
+
     }
 }

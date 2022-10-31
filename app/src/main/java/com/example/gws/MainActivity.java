@@ -19,13 +19,14 @@ import com.example.gws.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements InterfaceDokter, InterfacePertemuan{
     private ActivityMainBinding binding;
     private HomeFragment homeFragment;
     private BuatPertemuanFragment buatPertemuanFragment;
     private PertemuanFragment pertemuanFragment;
     private DokterFragment dokterFragment;
     private AddDokterFragment addDokterFragment;
+    private ListDokterDialogFragment listDokterDialogFragment;
     private FragmentManager fm;
 
     private Toolbar toolbar;
@@ -192,6 +193,26 @@ public class MainActivity extends AppCompatActivity{
     public void closeApplication(){
         this.moveTaskToBack(true);
         this.finish();
+
+    }
+
+    @Override
+    public void updateListDokter(ArrayList<Dokter> dokters) {
+
+    }
+
+    @Override
+    public void resetAddFormDokter() {
+
+    }
+
+    @Override
+    public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
+
+    }
+
+    @Override
+    public void resetAddFormPertemuan() {
 
     }
 }

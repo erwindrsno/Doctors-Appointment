@@ -11,9 +11,12 @@ public class MainPresenter {
     protected ArrayList<Pertemuan> pertemuans;
     protected InterfacePertemuan uipertemuan;
 
-    public MainPresenter(InterfaceDokter uidokter){
+    public MainPresenter(InterfaceDokter uidokter, InterfacePertemuan uipertemuan){
         this.uidokter = uidokter;
         this.dokters = new ArrayList<>();
+
+        this.uipertemuan = uipertemuan;
+        this.pertemuans = new ArrayList<>();
     }
 
     public void delListDokter(int position){
@@ -32,6 +35,10 @@ public class MainPresenter {
     }
 
     //pertemuan
+
+    public ArrayList<Dokter> getDokters(){
+        return this.dokters;
+    }
 
     public void delListPertemuan(int position){
         pertemuans.remove(position);

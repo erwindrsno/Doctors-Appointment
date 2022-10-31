@@ -21,12 +21,12 @@ public class MainPresenter {
 
     public void delListDokter(int position){
         dokters.remove(position);
-        this.uidokter.updateList(dokters);
+        this.uidokter.updateListDokter(dokters);
     }
 
     public void addListDokter(Dokter dokter){
         dokters.add(dokter);
-        this.uidokter.updateList(dokters);
+        this.uidokter.updateListDokter(dokters);
     }
 
     public void toggleFavDokter(int position){
@@ -42,12 +42,12 @@ public class MainPresenter {
 
     public void delListPertemuan(int position){
         pertemuans.remove(position);
-        this.uipertemuan.updateList(pertemuans);
+        this.uipertemuan.updateListPertemuan(pertemuans);
     }
 
     public void addListPertemuan(Pertemuan pertemuan){
         pertemuans.add(pertemuan);
-        this.uipertemuan.updateList(pertemuans);
+        this.uipertemuan.updateListPertemuan(pertemuans);
     }
 
     public void toggleDonePertemuan(int position){

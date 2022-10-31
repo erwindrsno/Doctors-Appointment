@@ -22,6 +22,7 @@ import java.util.Calendar;
 
 public class PertemuanFragment extends Fragment implements View.OnClickListener{
     private FragmentPertemuanBinding binding;
+    private MainPresenter presenter;
 
     public PertemuanFragment(){}
 
@@ -32,8 +33,9 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
-    public static PertemuanFragment newInstance(String title){
+    public static PertemuanFragment newInstance(String title, MainPresenter presenter){
         PertemuanFragment fragment = new PertemuanFragment();
+        fragment.presenter = presenter;
         Bundle args = new Bundle();
         args.putString("title",title);
         fragment.setArguments(args);

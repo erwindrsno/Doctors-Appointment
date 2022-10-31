@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.zip.Inflater;
 
-public class BuatPertemuanFragment extends Fragment implements View.OnClickListener, InterfaceDokter{
+public class BuatPertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan{
     private FragmentBuatPertemuanBinding binding;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
@@ -38,8 +38,6 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         this.binding = FragmentBuatPertemuanBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
-        this.presenter = new MainPresenter(this);
-
         binding.btnTglLahir.setOnClickListener(this);
         binding.btnPilihDokter.setOnClickListener(this);
 
@@ -52,8 +50,9 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         return view;
     }
 
-    public static BuatPertemuanFragment newInstance(String title){
+    public static BuatPertemuanFragment newInstance(String title, MainPresenter presenter){
         BuatPertemuanFragment fragment = new BuatPertemuanFragment();
+        fragment.presenter = presenter;
         Bundle args = new Bundle();
         args.putString("title",title);
         fragment.setArguments(args);
@@ -95,7 +94,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
     }
 
     @Override
-    public void updateList(ArrayList<Dokter> dokters) {
+    public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
 
     }
 

@@ -33,12 +33,16 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle abdt;
 
+    private MainPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        this.presenter = new MainPresenter(this, this);
 
         //inisialiasi fragment
         this.homeFragment = HomeFragment.newInstance("homeFragment");

@@ -44,13 +44,16 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
 
         this.presenter = new MainPresenter(this, this);
 
-        //inisialiasi fragment
+        //inisialiasi fragment dokter
         this.homeFragment = HomeFragment.newInstance("homeFragment");
-        this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
-        this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment");
         this.dokterFragment = DokterFragment.newInstance("dokterFragment");
         this.addDokterFragment = AddDokterFragment.newInstance("addDokterFragment");
-        //inisialisasi fragment
+        //inisialisasi fragment dokter
+        
+        //inisialisasi fragment pertemuan
+        this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment");
+        this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment");
+        //inisialisasi fragment pertemuan
 
         //Toolbar
         this.toolbar = binding.toolbar;

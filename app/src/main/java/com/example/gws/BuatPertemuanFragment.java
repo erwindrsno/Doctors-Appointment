@@ -37,7 +37,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         View view = binding.getRoot();
 
         binding.btnTglLahir.setOnClickListener(this);
-        binding.tvPilihDokter.setOnClickListener(this);
+        binding.btnPilihDokter.setOnClickListener(this);
 
 //        spinner = binding.spinnerDokter;
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BuatPertemuanFragment.this.getActivity(),
@@ -78,15 +78,15 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             datePickerDialog.show();
         }
 
+        else if(view.getId() == binding.btnPilihDokter.getId()){
+
+        }
+
         else if(view.getId() == binding.btnSubmit.getId()){
             Bundle result = new Bundle();
             result.putString("page","pertemuanFragment");
             //result harus add input pasien
             this.getParentFragmentManager().setFragmentResult("changePage",result);
-        }
-
-        else if(view.getId() == binding.tvPilihDokter.getId()){
-
         }
     }
 }

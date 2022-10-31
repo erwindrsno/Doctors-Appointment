@@ -41,7 +41,6 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
                 String detail = result.getString("detail");
                 Dokter dokTemp = new Dokter(namaD, spesialis, nomorHP, detail);
                 presenter.addListDokter(dokTemp);
-
             }
         });
 

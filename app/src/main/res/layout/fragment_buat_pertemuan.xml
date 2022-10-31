@@ -174,13 +174,23 @@
 <!--            android:layout_height="wrap_content">-->
 
 <!--        </Spinner>-->
-        <TextView
-            android:id="@+id/tv_pilih_dokter"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/btn_pilih_dokter"
             android:layout_height="wrap_content"
-            android:text="@string/hint_pilih_dokter">
-
-        </TextView>
+            android:layout_width="match_parent">
+            <TextView
+                android:id="@+id/tv_pilih_dokter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hint_pilih_dokter">
+            </TextView>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_pilih_spesialis"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/hint_pilih_dokter">-->
+<!--            </TextView>-->
+        </LinearLayout>
     </LinearLayout>
 
     <Button

@@ -11,6 +11,7 @@ import com.example.gws.databinding.FragmentAddDokterBinding;
 
 public class AddDokterFragment extends Fragment {
     private FragmentAddDokterBinding binding;
+    private MainPresenter presenter;
 
     public AddDokterFragment(){
 
@@ -25,8 +26,9 @@ public class AddDokterFragment extends Fragment {
         return binding.getRoot();
     }
 
-    public static AddDokterFragment newInstance(String title){
+    public static AddDokterFragment newInstance(String title, MainPresenter presenter){
         AddDokterFragment fragment = new AddDokterFragment();
+        fragment.presenter = presenter;
         Bundle args = new Bundle();
         args.putString("title", title);
         fragment.setArguments(args);

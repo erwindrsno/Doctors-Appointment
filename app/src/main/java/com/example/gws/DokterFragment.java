@@ -26,7 +26,6 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         this.binding = FragmentDokterBinding.inflate(inflater);
 
-        this.presenter = new MainPresenter(this);
         this.adapterDokter = new AdapterDokter(presenter, this);
         this.binding.listDokter.setAdapter(adapterDokter);
 
@@ -73,8 +72,9 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
         }
     }
 
-    public static DokterFragment newInstance(String title){
+    public static DokterFragment newInstance(String title, MainPresenter presenter){
         DokterFragment fragment = new DokterFragment();
+        fragment.presenter = presenter;
         Bundle args = new Bundle();
         args.putString("title", title);
         fragment.setArguments(args);
@@ -82,12 +82,12 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
     }
 
     @Override
-    public void updateList(ArrayList<Dokter> dokters) {
+    public void updateListDokter(ArrayList<Dokter> dokters) {
         this.adapterDokter.update(dokters);
     }
 
     @Override
-    public void resetAddForm() {
+    public void resetAddFormDokter() {
 
     }
 }

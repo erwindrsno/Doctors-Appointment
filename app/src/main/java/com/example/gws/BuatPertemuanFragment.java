@@ -95,11 +95,12 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
-
+        
     }
 
     @Override
-    public void resetAddForm() {
+    public void resetAddFormPertemuan() {
 
     }
+
 }

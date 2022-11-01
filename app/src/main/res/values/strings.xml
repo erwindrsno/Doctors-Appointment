@@ -19,7 +19,7 @@
     <string name="input_pertemuan_pasien">DD/MM/YYYY</string>
     <string name="tv_tanggal_pertemuan">Tanggal Pertemuan</string>
     <string name="tv_waktu_pertemuan">Pilih waktu pertemuan:</string>
-    <string name="et_waktu_pertemuan">HH/MM</string>
+    <string name="input_waktu_pertemuan">HH/MM</string>
     <string name="tv_keluhan_pasien">Keluhan anda:</string>
     <string name="hint_keluhan_pasien">Tuliskan keluhan anda</string>
     <string name="tv_pilih_dokter">Pilih Dokter:</string>

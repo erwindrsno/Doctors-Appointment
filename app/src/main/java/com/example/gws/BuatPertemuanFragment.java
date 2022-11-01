@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
@@ -24,14 +26,20 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.gws.databinding.FragmentBuatPertemuanBinding;
+import com.example.gws.databinding.FragmentListDokterDialogBinding;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 import java.util.zip.Inflater;
 
 public class BuatPertemuanFragment extends Fragment implements View.OnClickListener{
     private FragmentBuatPertemuanBinding binding;
+    private FragmentListDokterDialogBinding binding2;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private DatePickerDialog.OnDateSetListener setListener;
@@ -40,6 +48,13 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
     protected ListDokterDialogFragment listDokterDialogFragment;
     private int minute;
     private int hour;
+    private String date;
+    private String time;
+    private Date convertedDate;
+    private Date convertedTime;
+
+    private DateFormat formatterTime;
+    private DateFormat formatterDate;
 //    private Spinner spinner;
 
     public BuatPertemuanFragment(){}
@@ -49,9 +64,13 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         this.binding = FragmentBuatPertemuanBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
-        binding.btnTglLahir.setOnClickListener(this);
+        binding.btnTglPertemuan.setOnClickListener(this);
         binding.btnPilihDokter.setOnClickListener(this);
         binding.btnWaktuPertemuan.setOnClickListener(this);
+        binding.btnSubmit.setOnClickListener(this);
+
+        this.formatterTime = new SimpleDateFormat("HH:mm");
+        this.formatterDate = new SimpleDateFormat("dd/MM/yyyy");
 
 //        spinner = binding.spinnerDokter;
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BuatPertemuanFragment.this.getActivity(),
@@ -74,21 +93,24 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Calendar calendar = Calendar.getInstance();
-        final int year = calendar.get(Calendar.YEAR);
-        final int month = calendar.get(Calendar.MONTH);
-        final int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        Log.d("debughaha1","masuk1");
-        if (view.getId() == binding.btnTglLahir.getId()) {
+        if (view.getId() == binding.btnTglPertemuan.getId()) {
+            Calendar calendar = Calendar.getInstance();
+            final int year = calendar.get(Calendar.YEAR);
+            final int month = calendar.get(Calendar.MONTH);
+            final int day = calendar.get(Calendar.DAY_OF_MONTH);
             DatePickerDialog datePickerDialog = new DatePickerDialog(BuatPertemuanFragment.this.getActivity(),android.R.style.
                     Theme_Holo_Light_Dialog_MinWidth,setListener = new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
                     month = month + 1;
-                    String date = day+"/"+month+"/"+year;
+                    date = day+"/"+month+"/"+year;
+//                    try{
+//                        convertedDate = formatterDate.parse(date);
+//                    }catch(Exception ex){
+//                        Log.d("debugTDate","error ngab");
+//                    }
                     Log.d("debughaha2","masuk2");
-                    binding.btnTglLahir.setText(date);
+                    binding.btnTglPertemuan.setText(date);
                 }
             }, year, month, day);
             datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -117,6 +139,12 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
                  public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                      hour = selectedHour;
                      minute = selectedMinute;
+                     time = selectedHour+":"+selectedMinute;
+//                     try{
+//                         convertedTime = formatterTime.parse(time);
+//                     }catch(Exception ex){
+//                         Log.d("debugTime","error ngab");
+//                     }
                      binding.btnWaktuPertemuan.setText(String.format(Locale.getDefault(),"%02d:%02d",hour,minute));
                  }
              };
@@ -127,9 +155,23 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         else if(view.getId() == binding.btnSubmit.getId()){
             Bundle result = new Bundle();
             result.putString("page","pertemuanFragment");
+            String nama = binding.etInputNama.getText().toString();
+            RadioGroup rg = binding.rgGender;
+            int selectedId = rg.getCheckedRadioButtonId();
+            String gender = "";
+            if(selectedId == binding.Pria.getId()){
+                gender += "Pria";
+            }
+            else if(selectedId == binding.Wanita.getId()){
+                gender += "Wanita";
+            }
+            String keluhan = binding.etKeluhanPasien.getText().toString();
+            String namaDokter = binding.tvPilihDokter.getText().toString();
+            String spesialis = binding.tvPilihSpesialis.getText().toString();
+            Pertemuan pertemuanTemp = new Pertemuan(date,time,nama,namaDokter,keluhan,spesialis,gender,false);
+            presenter.addListPertemuan(pertemuanTemp);
             //result harus add input pasien
             this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
     }
-
 }

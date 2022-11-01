@@ -1,43 +1,43 @@
 package com.example.gws;
 
-import java.sql.Time;
-import java.sql.Date;
+import java.util.Date;
+import java.util.Date;
 
 public class Pertemuan {
-    private Date tanggal;
-    private Time waktu;
+    private String tanggal;
+    private String waktu;
     private String namaPasien;
     private String namaDokter;
     private String keluhan;
-    private int umur;
+    private String spesialis;
     private String gender;
     private boolean done;
 
-    public Pertemuan(Date tanggal, Time waktu, String namaPasien, String namaDokter, String keluhan, int umur, String gender, boolean done) {
+    public Pertemuan(String tanggal, String waktu, String namaPasien, String namaDokter, String spesialis, String keluhan, String gender, boolean done) {
         this.tanggal = tanggal;
         this.waktu = waktu;
         this.namaPasien = namaPasien;
         this.namaDokter = namaDokter;
         this.keluhan = keluhan;
-        this.umur = umur;
+        this.spesialis = spesialis;
         this.gender = gender;
         this.done = done;
     }
 
 
-    public Date getTanggal() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(Date tanggal) {
+    public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
 
-    public Time getWaktu() {
+    public String getWaktu() {
         return waktu;
     }
 
-    public void setWaktu(Time waktu) {
+    public void setWaktu(String waktu) {
         this.waktu = waktu;
     }
 
@@ -63,14 +63,6 @@ public class Pertemuan {
 
     public void setKeluhan(String keluhan) {
         this.keluhan = keluhan;
-    }
-
-    public int getUmur() {
-        return umur;
-    }
-
-    public void setUmur(int umur) {
-        this.umur = umur;
     }
 
     public String getGender() {

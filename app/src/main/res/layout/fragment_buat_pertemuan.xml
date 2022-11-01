@@ -30,6 +30,7 @@
         </TextView>
 
         <EditText
+            android:id="@+id/et_input_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/input_nama_pasien"
@@ -54,11 +55,13 @@
         </TextView>
 
         <RadioGroup
+            android:id="@+id/rg_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
             <RadioButton
+                android:id="@+id/Pria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gender_pria"
@@ -67,6 +70,7 @@
             </RadioButton>
 
             <RadioButton
+                android:id="@+id/Wanita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/gender_wanita"
@@ -92,12 +96,12 @@
         </TextView>
 
         <Button
-            android:id="@+id/btn_tgl_lahir"
+            android:id="@+id/btn_tgl_pertemuan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/input_pertemuan_pasien"
             android:textColor="@color/black"
             android:textSize="15sp"
+            android:text="@string/input_pertemuan_pasien"
             style="?android:spinnerStyle">
         </Button>
 
@@ -123,8 +127,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="@string/et_waktu_pertemuan"
             android:textColor="@color/black"
+            android:text="@string/input_waktu_pertemuan"
             style="?android:spinnerStyle">
         </Button>
 

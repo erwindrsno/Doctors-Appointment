@@ -18,11 +18,13 @@ import androidx.fragment.app.Fragment;
 import com.example.gws.databinding.FragmentBuatPertemuanBinding;
 import com.example.gws.databinding.FragmentPertemuanBinding;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
-public class PertemuanFragment extends Fragment implements View.OnClickListener{
+public class PertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan{
     private FragmentPertemuanBinding binding;
     private MainPresenter presenter;
+    private AdapterPertemuan adapterPertemuan;
 
     public PertemuanFragment(){}
 
@@ -30,6 +32,10 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         this.binding = FragmentPertemuanBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+
+        this.adapterPertemuan = new AdapterPertemuan(presenter, this);
+        this.binding.listPertemuan.setAdapter(adapterPertemuan);
+
         binding.btnAddPertemuan.setOnClickListener(this);
         return view;
     }
@@ -50,5 +56,15 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener{
             result.putString("page","buatPertemuanFragment");
             this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
+    }
+
+    @Override
+    public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
+        this.adapterPertemuan.update(pertemuans);
+    }
+
+    @Override
+    public void resetAddFormPertemuan() {
+
     }
 }

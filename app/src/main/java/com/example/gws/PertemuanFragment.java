@@ -30,6 +30,7 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         this.binding = FragmentPertemuanBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+        binding.btnAddPertemuan.setOnClickListener(this);
         return view;
     }
 
@@ -44,6 +45,10 @@ public class PertemuanFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-
+        if(view.getId() == binding.btnAddPertemuan.getId()){
+            Bundle result = new Bundle();
+            result.putString("page","buatPertemuanFragment");
+            this.getParentFragmentManager().setFragmentResult("changePage",result);
+        }
     }
 }

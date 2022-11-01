@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
 
     @Override
     public void updateListDokter(ArrayList<Dokter> dokters) {
-
+        dokterFragment.updateListDokter(dokters);
     }
 
     @Override

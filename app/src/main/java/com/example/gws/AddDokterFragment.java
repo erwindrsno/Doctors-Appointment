@@ -46,15 +46,17 @@ public class AddDokterFragment extends Fragment {
             String spesialis = binding.etSpesialisDokter.getText().toString();
             String nomorHP = binding.etNomorDokter.getText().toString();
             String detail = binding.etDetailDokter.getText().toString();
+            Dokter tempDokter = new Dokter(namaD,spesialis, nomorHP, detail);
+            presenter.addListDokter(tempDokter);
             //this.presenter.addListDokter(namaD, spesialis, nomorHP,detail);
             Bundle result = new Bundle();
             result.putString("page","dokterFragment");
-            result.putString("namaDokter",namaD);
-            result.putString("spesialis",spesialis);
-            result.putString("nomorHP",nomorHP);
-            result.putString("detail",detail);
+//            result.putString("namaDokter",namaD);
+//            result.putString("spesialis",spesialis);
+//            result.putString("nomorHP",nomorHP);
+//            result.putString("detail",detail);
             this.getParentFragmentManager().setFragmentResult("changePage",result);
-            this.getParentFragmentManager().setFragmentResult("addToListDokter",result);
+//            this.getParentFragmentManager().setFragmentResult("addToListDokter",result);
 
             binding.etNamaDokter.setText("");
             binding.etSpesialisDokter.setText("");

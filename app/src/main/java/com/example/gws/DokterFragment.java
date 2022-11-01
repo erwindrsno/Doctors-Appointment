@@ -31,17 +31,18 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
 
         FragmentManager fm = this.getParentFragmentManager();
 
-        this.getParentFragmentManager().setFragmentResultListener("addToListDokter", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                String namaD = result.getString("namaDokter");
-                String spesialis = result.getString("spesialis");
-                String nomorHP = result.getString("nomorHP");
-                String detail = result.getString("detail");
-                Dokter dokTemp = new Dokter(namaD, spesialis, nomorHP, detail);
-                presenter.addListDokter(dokTemp);
-            }
-        });
+//        this.getParentFragmentManager().setFragmentResultListener("addToListDokter", this, new FragmentResultListener() {
+//            @Override
+//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//                Log.d("debugAddDokter","masuk aman");
+//                String namaD = result.getString("namaDokter");
+//                String spesialis = result.getString("spesialis");
+//                String nomorHP = result.getString("nomorHP");
+//                String detail = result.getString("detail");
+//                Dokter dokTemp = new Dokter(namaD, spesialis, nomorHP, detail);
+//                presenter.addListDokter(dokTemp);
+//            }
+//        });
 
 
         this.getParentFragmentManager().setFragmentResultListener("setMessage", this, new FragmentResultListener() {

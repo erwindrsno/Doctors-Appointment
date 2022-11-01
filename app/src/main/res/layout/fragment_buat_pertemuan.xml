@@ -178,19 +178,20 @@
         <LinearLayout
             android:id="@+id/btn_pilih_dokter"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/tv_pilih_dokter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/hint_pilih_dokter">
             </TextView>
-<!--            <TextView-->
-<!--                android:id="@+id/tv_pilih_spesialis"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/hint_pilih_dokter">-->
-<!--            </TextView>-->
+            <TextView
+                android:id="@+id/tv_pilih_spesialis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
         </LinearLayout>
     </LinearLayout>
 

@@ -3,10 +3,15 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="@dimen/size300"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/dialog_detail_dokter"
         android:orientation="vertical"
         >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,8 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_dokter_name_dialog"
-            android:text="nama"
-            android:layout_marginBottom="@dimen/size10"/>
+            android:text="nama"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -30,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_dokter_spesialis_dialog"
-            android:text="spesialis"
-            android:layout_marginBottom="@dimen/size10"/>
+            android:text="spesialis"/>
+    </LinearLayout>
 
     </LinearLayout>

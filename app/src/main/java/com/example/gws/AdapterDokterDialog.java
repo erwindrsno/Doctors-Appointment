@@ -19,9 +19,9 @@ public class AdapterDokterDialog extends BaseAdapter {
     private  ListDokterDialogFragment fragment;
     ItemListDokterDialogBinding binding;
 
-    public AdapterDokterDialog(ArrayList<Dokter> dokters, ListDokterDialogFragment fragment){
+    public AdapterDokterDialog(ListDokterDialogFragment fragment){
         super();
-        this.dokters = dokters;
+        this.dokters = new ArrayList<>();
         this.fragment = fragment;
     }
 
@@ -55,7 +55,12 @@ public class AdapterDokterDialog extends BaseAdapter {
         }
         viewHolder.updateView(this.dokters.get(i));
 
-        return null;
+        return view;
+    }
+
+    public void update(ArrayList<Dokter> listDokter){
+        this.dokters = listDokter;
+        notifyDataSetChanged();
     }
 
     private class ViewHolder{
@@ -78,13 +83,14 @@ public class AdapterDokterDialog extends BaseAdapter {
         }
 
         private void onClickPilih(View view) {
-            Bundle dokterD = new Bundle();
+            Bundle result = new Bundle();
             String nama = dokterTemp.getNama();
             String spesialis = dokterTemp.getSpesialis();
-            dokterD.putString("namaDokter", nama);
-            dokterD.putString("spesialisDokter", spesialis);
+            result.putString("namaDokter", nama);
+            result.putString("spesialisDokter", spesialis);
 
-            fragment.getParentFragmentManager().setFragmentResult("pilihDokter",dokterD);
+            fragment.getParentFragmentManager().setFragmentResult("pilihDokter",result);
+            fragment.dismiss();
         }
 
         public void updateView(Dokter dokter){

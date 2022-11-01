@@ -1,6 +1,7 @@
 package com.example.gws;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,12 @@ import com.example.gws.databinding.FragmentListDokterDialogBinding;
 
 import java.util.ArrayList;
 
-public class ListDokterDialogFragment extends DialogFragment {
+public class ListDokterDialogFragment extends DialogFragment implements InterfaceDokter{
     private String nama;
     private String spesialis;
     private MainPresenter presenter;
     FragmentListDokterDialogBinding binding;
+    AdapterDokterDialog adapterDokterDialog;
 
     public ListDokterDialogFragment(){}
 
@@ -33,12 +35,28 @@ public class ListDokterDialogFragment extends DialogFragment {
         this.binding = FragmentListDokterDialogBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
-        ArrayList<Dokter> dokters = this.presenter.getDokters();
-        AdapterDokterDialog adapterDokterDialog = new AdapterDokterDialog(dokters, this);
+        ArrayList<Dokter> dokters = presenter.getDokters();
+        Log.d("debugSizeDokter", dokters.size()+"");
+        this.adapterDokterDialog = new AdapterDokterDialog(this);
+        this.adapterDokterDialog.update(dokters);
         this.binding.lvListDokterDialog.setAdapter(adapterDokterDialog);
+
 
         return view;
     }
 
 
+    @Override
+    public void updateListDokter(ArrayList<Dokter> dokters) {
+        if(this.adapterDokterDialog==null){
+            adapterDokterDialog = new AdapterDokterDialog(this);
+            adapterDokterDialog.update(dokters);
+        }
+//        adapterDokterDialog.update(dokters);
+    }
+
+    @Override
+    public void resetAddFormDokter() {
+
+    }
 }

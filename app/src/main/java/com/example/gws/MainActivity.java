@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
         //inisialisasi fragment dokter
 
         //inisialisasi fragment pertemuan
-        this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment",this.presenter);
+        this.listDokterDialogFragment = ListDokterDialogFragment.newInstance("listDokterDialogFragment", this.presenter);
+        this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment",this.presenter, this.listDokterDialogFragment);
         this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment",this.presenter);
         //inisialisasi fragment pertemuan
 
@@ -206,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
     @Override
     public void updateListDokter(ArrayList<Dokter> dokters) {
         dokterFragment.updateListDokter(dokters);
+        listDokterDialogFragment.updateListDokter(dokters);
     }
 
     @Override

@@ -17,7 +17,11 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.gws.databinding.FragmentBuatPertemuanBinding;
 
@@ -26,13 +30,14 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.zip.Inflater;
 
-public class BuatPertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan{
+public class BuatPertemuanFragment extends Fragment implements View.OnClickListener{
     private FragmentBuatPertemuanBinding binding;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private DatePickerDialog.OnDateSetListener setListener;
     TimePickerDialog.OnTimeSetListener timeSetListener;
     private MainPresenter presenter;
+    protected ListDokterDialogFragment listDokterDialogFragment;
     private int minute;
     private int hour;
 //    private Spinner spinner;
@@ -57,9 +62,10 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         return view;
     }
 
-    public static BuatPertemuanFragment newInstance(String title, MainPresenter presenter){
+    public static BuatPertemuanFragment newInstance(String title, MainPresenter presenter, ListDokterDialogFragment listDokterDialogFragment){
         BuatPertemuanFragment fragment = new BuatPertemuanFragment();
         fragment.presenter = presenter;
+        fragment.listDokterDialogFragment = listDokterDialogFragment;
         Bundle args = new Bundle();
         args.putString("title",title);
         fragment.setArguments(args);
@@ -89,8 +95,20 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             datePickerDialog.show();
         }
 
-        else if(view.getId() == binding.btnPilihDokter.getId()){
+        else if(view == binding.btnPilihDokter){
+            FragmentManager fm = getParentFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            this.listDokterDialogFragment.show(fm, "listDokterDialogFragment");
 
+            this.getParentFragmentManager().setFragmentResultListener("pilihDokter", this, new FragmentResultListener() {
+                @Override
+                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                    String namaD = result.getString("namaDokter");
+                    String spesialis = result.getString("spesialisDokter");
+                    binding.tvPilihDokter.setText(namaD);
+                    binding.tvPilihSpesialis.setText(spesialis);
+                }
+            });
         }
 
         else if(view.getId() == binding.btnWaktuPertemuan.getId()){
@@ -112,16 +130,6 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             //result harus add input pasien
             this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
-    }
-
-    @Override
-    public void updateListPertemuan(ArrayList<Pertemuan> pertemuans) {
-        
-    }
-
-    @Override
-    public void resetAddFormPertemuan() {
-
     }
 
 }

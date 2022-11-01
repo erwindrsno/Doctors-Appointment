@@ -85,7 +85,16 @@ public class AdapterDokter extends BaseAdapter {
             binding.btnStarDokter.setOnClickListener(this::onClickStar);
             binding.btnCallDokter.setOnClickListener(this::onClickCall);
             binding.btnDelDokter.setOnClickListener(this::onClickDel);
-            binding.listItemDialogDokter.setOnClickListener(this::onClickDetail);
+            binding.listItemDialog.setOnClickListener(this::onClickDetail);
+            binding.btnEditDokter.setOnClickListener(this::onClickEdit);
+        }
+
+        private void onClickEdit(View view) {
+            Bundle result = new Bundle();
+            result.putString("page","editDokterFragment");
+            result.putInt("position", this.position);
+            fragment.getParentFragmentManager().setFragmentResult("editPosition", result);
+            fragment.getParentFragmentManager().setFragmentResult("changePage",result);
         }
 
         private void onClickDetail(View view) {

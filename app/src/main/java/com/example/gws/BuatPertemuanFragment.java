@@ -131,6 +131,9 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
                     binding.tvPilihSpesialis.setText(spesialis);
                 }
             });
+            if(this.presenter.getSizeDokter()<1){
+                binding.btnSubmit.setClickable(false);
+            }
         }
 
         else if(view.getId() == binding.btnWaktuPertemuan.getId()){
@@ -153,25 +156,29 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         }
 
         else if(view.getId() == binding.btnSubmit.getId()){
-            Bundle result = new Bundle();
-            result.putString("page","pertemuanFragment");
-            String nama = binding.etInputNama.getText().toString();
-            RadioGroup rg = binding.rgGender;
-            int selectedId = rg.getCheckedRadioButtonId();
-            String gender = "";
-            if(selectedId == binding.Pria.getId()){
-                gender += "Pria";
+            if(this.presenter.getSizeDokter()<1){
+                binding.btnSubmit.setClickable(false);
             }
-            else if(selectedId == binding.Wanita.getId()){
-                gender += "Wanita";
+            else {
+                Bundle result = new Bundle();
+                result.putString("page", "pertemuanFragment");
+                String nama = binding.etInputNama.getText().toString();
+                RadioGroup rg = binding.rgGender;
+                int selectedId = rg.getCheckedRadioButtonId();
+                String gender = "";
+                if (selectedId == binding.Pria.getId()) {
+                    gender += "Pria";
+                } else if (selectedId == binding.Wanita.getId()) {
+                    gender += "Wanita";
+                }
+                String keluhan = binding.etKeluhanPasien.getText().toString();
+                String namaDokter = binding.tvPilihDokter.getText().toString();
+                String spesialis = binding.tvPilihSpesialis.getText().toString();
+                Pertemuan pertemuanTemp = new Pertemuan(date, time, nama, namaDokter, keluhan, spesialis, gender, false);
+                presenter.addListPertemuan(pertemuanTemp);
+                //result harus add input pasien
+                this.getParentFragmentManager().setFragmentResult("changePage", result);
             }
-            String keluhan = binding.etKeluhanPasien.getText().toString();
-            String namaDokter = binding.tvPilihDokter.getText().toString();
-            String spesialis = binding.tvPilihSpesialis.getText().toString();
-            Pertemuan pertemuanTemp = new Pertemuan(date,time,nama,namaDokter,keluhan,spesialis,gender,false);
-            presenter.addListPertemuan(pertemuanTemp);
-            //result harus add input pasien
-            this.getParentFragmentManager().setFragmentResult("changePage",result);
         }
     }
 }

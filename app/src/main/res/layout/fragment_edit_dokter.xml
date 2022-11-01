@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size5"
+        android:textSize="@dimen/size20"
+        android:text="Nama Dokter: "
+        >
+    </TextView>
+    <EditText
+        android:id="@+id/et_nama_dokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:layout_marginLeft="@dimen/size5"
+        android:layout_marginRight="@dimen/size5"
+        >
+    </EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size5"
+        android:textSize="@dimen/size20"
+        android:text="Spesialis Dokter: "
+        >
+    </TextView>
+    <EditText
+        android:id="@+id/et_spesialis_dokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:layout_marginLeft="@dimen/size5"
+        android:layout_marginRight="@dimen/size5"
+        >
+    </EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size5"
+        android:textSize="@dimen/size20"
+        android:text="Nomor Dokter: "
+        >
+    </TextView>
+    <EditText
+        android:id="@+id/et_nomor_dokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:inputType="phone"
+        android:layout_marginLeft="@dimen/size5"
+        android:layout_marginRight="@dimen/size5"
+        >
+    </EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size5"
+        android:textSize="@dimen/size20"
+        android:text="Detail: "
+        >
+    </TextView>
+    <EditText
+        android:id="@+id/et_detail_dokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:layout_marginLeft="@dimen/size5"
+        android:layout_marginRight="@dimen/size5"
+        >
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_edit_dokter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="save">
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>

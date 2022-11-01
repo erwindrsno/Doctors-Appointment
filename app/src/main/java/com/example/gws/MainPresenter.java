@@ -34,10 +34,27 @@ public class MainPresenter {
         dokters.get(position).toggleFav();
     }
 
+    public Dokter getDokter(int position){
+        return dokters.get(position);
+    }
+
+    public void editDokter(int position, String namaD, String spesialis, String nomorHP, String detail){
+        this.dokters.get(position).setNama(namaD);
+        this.dokters.get(position).setSpesialis(spesialis);
+        this.dokters.get(position).setNomorHP(nomorHP);
+        this.dokters.get(position).setDetail(detail);
+        Dokter dt = new Dokter(namaD, spesialis, nomorHP, detail);
+        this.uidokter.updateListDokter(dokters);
+    }
+
     //pertemuan
 
     public ArrayList<Dokter> getDokters(){
         return this.dokters;
+    }
+
+    public int getSizeDokter(){
+        return dokters.size();
     }
 
     public void delListPertemuan(int position){

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
     private DokterFragment dokterFragment;
     private AddDokterFragment addDokterFragment;
     private ListDokterDialogFragment listDokterDialogFragment;
+    private EditDokterFragment editDokterFragment;
     private FragmentManager fm;
 
     private Toolbar toolbar;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
         this.homeFragment = HomeFragment.newInstance("homeFragment");
         this.dokterFragment = DokterFragment.newInstance("dokterFragment", this.presenter);
         this.addDokterFragment = AddDokterFragment.newInstance("addDokterFragment", this.presenter);
+        this.editDokterFragment = EditDokterFragment.newInstance("editDokterFragment", this.presenter);
         //inisialisasi fragment dokter
 
         //inisialisasi fragment pertemuan
@@ -107,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
             if(this.addDokterFragment.isAdded()){
                 ft.hide(this.addDokterFragment);
             }
+            if(this.editDokterFragment.isAdded()){
+                ft.hide(this.editDokterFragment);
+            }
         }
         else if(page.equals("buatPertemuanFragment")){
             if(this.buatPertemuanFragment.isAdded()){
@@ -127,6 +132,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
             }
             if(this.addDokterFragment.isAdded()){
                 ft.hide(this.addDokterFragment);
+            }
+            if(this.editDokterFragment.isAdded()){
+                ft.hide(this.editDokterFragment);
             }
         }
         else if(page.equals("pertemuanFragment")){
@@ -149,6 +157,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
             if(this.addDokterFragment.isAdded()){
                 ft.hide(this.addDokterFragment);
             }
+            if(this.editDokterFragment.isAdded()){
+                ft.hide(this.editDokterFragment);
+            }
         }
         else if(page.equals("dokterFragment")){
             if(this.dokterFragment.isAdded()){
@@ -170,6 +181,9 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
             if(this.addDokterFragment.isAdded()){
                 ft.hide(this.addDokterFragment);
             }
+            if(this.editDokterFragment.isAdded()){
+                ft.hide(this.editDokterFragment);
+            }
         }
         else if(page.equals("addDokterFragment")){
             if(this.addDokterFragment.isAdded()){
@@ -190,6 +204,32 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
             }
             if(this.dokterFragment.isAdded()){
                 ft.hide(this.dokterFragment);
+            }
+            if(this.editDokterFragment.isAdded()){
+                ft.hide(this.editDokterFragment);
+            }
+        }
+        else if(page.equals("editDokterFragment")){
+            if(this.editDokterFragment.isAdded()){
+                ft.show(this.editDokterFragment);
+            }
+            else {
+                ft.add(R.id.fragment_container, this.editDokterFragment);
+            }
+            if(this.homeFragment.isAdded()) {
+                ft.hide(this.homeFragment);
+            }
+            if(this.buatPertemuanFragment.isAdded()){
+                ft.hide(this.buatPertemuanFragment);
+            }
+            if(this.pertemuanFragment.isAdded()){
+                ft.hide(this.pertemuanFragment);
+            }
+            if(this.dokterFragment.isAdded()){
+                ft.hide(this.dokterFragment);
+            }
+            if(this.addDokterFragment.isAdded()){
+                ft.hide(this.addDokterFragment);
             }
         }
         else if(page.equals("exit")){

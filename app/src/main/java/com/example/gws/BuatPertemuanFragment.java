@@ -2,6 +2,7 @@ package com.example.gws;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 
 import androidx.fragment.app.Fragment;
 
@@ -21,6 +23,7 @@ import com.example.gws.databinding.FragmentBuatPertemuanBinding;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.zip.Inflater;
 
 public class BuatPertemuanFragment extends Fragment implements View.OnClickListener, InterfacePertemuan{
@@ -28,7 +31,10 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     private DatePickerDialog.OnDateSetListener setListener;
+    TimePickerDialog.OnTimeSetListener timeSetListener;
     private MainPresenter presenter;
+    private int minute;
+    private int hour;
 //    private Spinner spinner;
 
     public BuatPertemuanFragment(){}
@@ -40,6 +46,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
 
         binding.btnTglLahir.setOnClickListener(this);
         binding.btnPilihDokter.setOnClickListener(this);
+        binding.btnWaktuPertemuan.setOnClickListener(this);
 
 //        spinner = binding.spinnerDokter;
 //        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(BuatPertemuanFragment.this.getActivity(),
@@ -65,6 +72,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
         Log.d("debughaha1","masuk1");
         if (view.getId() == binding.btnTglLahir.getId()) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(BuatPertemuanFragment.this.getActivity(),android.R.style.
@@ -83,6 +91,19 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
 
         else if(view.getId() == binding.btnPilihDokter.getId()){
 
+        }
+
+        else if(view.getId() == binding.btnWaktuPertemuan.getId()){
+             timeSetListener = new TimePickerDialog.OnTimeSetListener(){
+                 @Override
+                 public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                     hour = selectedHour;
+                     minute = selectedMinute;
+                     binding.btnWaktuPertemuan.setText(String.format(Locale.getDefault(),"%02d:%02d",hour,minute));
+                 }
+             };
+             TimePickerDialog timePickerDialog = new TimePickerDialog(this.getContext(),timeSetListener,hour,minute,true);
+             timePickerDialog.show();
         }
 
         else if(view.getId() == binding.btnSubmit.getId()){

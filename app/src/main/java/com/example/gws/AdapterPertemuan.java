@@ -34,7 +34,7 @@
 //    }
 //
 //    @Override
-//    public Object getItem(int i) {
+//    public Pertemuan getItem(int i) {
 //        return pertemuans.get(i);
 //    }
 //

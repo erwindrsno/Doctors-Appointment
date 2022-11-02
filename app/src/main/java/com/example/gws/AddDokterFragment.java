@@ -36,27 +36,26 @@ public class AddDokterFragment extends Fragment {
     }
 
     private void setOnClick(View view) {
-//        Bundle result = new Bundle();
-//        if(view.getId()==binding.btnAddDokter.getId()){
-//            result.putString("page","dokterFragment");
-//            this.getParentFragmentManager().setFragmentResult("changePage",result);
-//        }
         if(view.getId()==binding.btnAddDokter.getId()){
+            SQLiteManagerDokter sqLiteManagerDokter = new SQLiteManagerDokter(getContext());
             String namaD = binding.etNamaDokter.getText().toString();
             String spesialis = binding.etSpesialisDokter.getText().toString();
             String nomorHP = binding.etNomorDokter.getText().toString();
             String detail = binding.etDetailDokter.getText().toString();
-            Dokter tempDokter = new Dokter(namaD,spesialis, nomorHP, detail);
+
+            int max = 999;
+            int min = 1;
+            int range = max - min + 1;
+            int rand = (int) (Math.random()*range)+min;
+
+            int id = presenter.getSizeDokter()+rand;
+
+            sqLiteManagerDokter.addDokterToDatabase(namaD, spesialis, nomorHP, detail);
+            Dokter tempDokter = new Dokter(id, namaD,spesialis, nomorHP, detail);
             presenter.addListDokter(tempDokter);
-            //this.presenter.addListDokter(namaD, spesialis, nomorHP,detail);
             Bundle result = new Bundle();
             result.putString("page","dokterFragment");
-//            result.putString("namaDokter",namaD);
-//            result.putString("spesialis",spesialis);
-//            result.putString("nomorHP",nomorHP);
-//            result.putString("detail",detail);
             this.getParentFragmentManager().setFragmentResult("changePage",result);
-//            this.getParentFragmentManager().setFragmentResult("addToListDokter",result);
 
             binding.etNamaDokter.setText("");
             binding.etSpesialisDokter.setText("");

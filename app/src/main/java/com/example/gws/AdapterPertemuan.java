@@ -89,14 +89,32 @@ public class AdapterPertemuan extends BaseAdapter{
         @Override
         public void onClick(View view) {
             if(view.getId() == binding.btnDelPertemuan.getId()){
+                SQLiteManagerPertemuan sqLiteManagerPertemuan = new SQLiteManagerPertemuan(fragment.getContext());
+                int id = pertemuanTemp.getId();
                 presenter.delListPertemuan(position);
+                sqLiteManagerPertemuan.deletePertemuanDatabase(id);
                 notifyDataSetChanged();
             }
             else if(view.getId() == binding.btnCheckboxPertemuan.getId()){
 
             }
             else if(view.getId() == binding.listItemPertemuan.getId()){
+                Bundle result = new Bundle();
+                String tanggal = pertemuanTemp.getTanggal();
+                String waktu = pertemuanTemp.getTanggal();
+                String namapasien = pertemuanTemp.getNamaPasien();
+                String namadokter = pertemuanTemp.getNamaDokter();
+                String keluhan = pertemuanTemp.getKeluhan();
+                String spesialis = pertemuanTemp.getSpesialis();
 
+                result.putString("tanggal", tanggal);
+                result.putString("waktu", waktu);
+                result.putString("namapasien", namapasien);
+                result.putString("namadokter", namadokter);
+                result.putString("keluhan", keluhan);
+                result.putString("spesialis", spesialis);
+
+                fragment.getParentFragmentManager().setFragmentResult("setPertemuan", result);
             }
         }
 

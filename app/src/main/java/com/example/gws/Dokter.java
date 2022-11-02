@@ -3,12 +3,14 @@ package com.example.gws;
 public class Dokter {
 
     private boolean isFav;
+    private int id;
     private String nama;
     private String spesialis;
     private String nomorHP;
     private String detail;
 
-    public Dokter(String nama, String spesialis, String nomorHP, String detail) {
+    public Dokter(int id, String nama, String spesialis, String nomorHP, String detail) {
+        this.id = id;
         this.nama = nama;
         this.spesialis = spesialis;
         this.nomorHP = nomorHP;
@@ -16,7 +18,9 @@ public class Dokter {
         this.isFav = false;
     }
 
-
+    public int getId() {
+        return id;
+    }
     public String getNama() {
         return nama;
     }

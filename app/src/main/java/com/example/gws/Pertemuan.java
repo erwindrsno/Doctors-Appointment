@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Date;
 
 public class Pertemuan {
+    int id;
     private String tanggal;
     private String waktu;
     private String namaPasien;
@@ -13,7 +14,8 @@ public class Pertemuan {
     private String gender;
     private boolean done;
 
-    public Pertemuan(String tanggal, String waktu, String namaPasien, String namaDokter, String spesialis, String keluhan, String gender, boolean done) {
+    public Pertemuan(int id, String tanggal, String waktu, String namaPasien, String namaDokter, String spesialis, String keluhan, String gender, boolean done) {
+        this.id = id;
         this.tanggal = tanggal;
         this.waktu = waktu;
         this.namaPasien = namaPasien;
@@ -24,6 +26,13 @@ public class Pertemuan {
         this.done = done;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getSpesialis() {
+        return spesialis;
+    }
 
     public String getTanggal() {
         return tanggal;

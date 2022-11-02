@@ -1,5 +1,6 @@
 package com.example.gws;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,11 +36,25 @@ public class ListDokterDialogFragment extends DialogFragment implements Interfac
         this.binding = FragmentListDokterDialogBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
-        ArrayList<Dokter> dokters = presenter.getDokters();
+        SQLiteManagerDokter sqLiteManagerDokter = new SQLiteManagerDokter(getContext());
+        Cursor data = sqLiteManagerDokter.loadDokters();
+        ArrayList<Dokter> dokters = new ArrayList<>();
+
+        while (data.moveToNext()){
+            int id = data.getInt(0);
+            String nama = data.getString(1);
+            String spesialis = data.getString(2);
+            String nomorHP = data.getString(3);
+            String detail = data.getString(4);
+            Dokter dt = new Dokter(id, nama, spesialis, nomorHP, detail);
+            dokters.add(dt);
+        }
+
         Log.d("debugSizeDokter", dokters.size()+"");
         this.adapterDokterDialog = new AdapterDokterDialog(this);
         this.adapterDokterDialog.update(dokters);
         this.binding.lvListDokterDialog.setAdapter(adapterDokterDialog);
+
 
 
         return view;

@@ -156,10 +156,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
         }
 
         else if(view.getId() == binding.btnSubmit.getId()){
-            if(this.presenter.getSizeDokter()<1){
-                binding.btnSubmit.setClickable(false);
-            }
-            else {
+                SQLiteManagerPertemuan sqLiteManagerPertemuan = new SQLiteManagerPertemuan(getContext());
                 Bundle result = new Bundle();
                 result.putString("page", "pertemuanFragment");
                 String nama = binding.etInputNama.getText().toString();
@@ -174,11 +171,27 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
                 String keluhan = binding.etKeluhanPasien.getText().toString();
                 String namaDokter = binding.tvPilihDokter.getText().toString();
                 String spesialis = binding.tvPilihSpesialis.getText().toString();
-                Pertemuan pertemuanTemp = new Pertemuan(date, time, nama, namaDokter, keluhan, spesialis, gender, false);
+
+                int max = 999;
+                int min = 1;
+                int range = max - min + 1;
+                int rand = (int) (Math.random()*range)+min;
+
+                int id = presenter.getSizePertemuan()+rand;
+
+                sqLiteManagerPertemuan.addPertemuanDatabase(date, time, nama, namaDokter, keluhan, spesialis, gender, "N");
+                Pertemuan pertemuanTemp = new Pertemuan(id, date, time, nama, namaDokter, keluhan, spesialis, gender, false);
                 presenter.addListPertemuan(pertemuanTemp);
                 //result harus add input pasien
                 this.getParentFragmentManager().setFragmentResult("changePage", result);
-            }
+
+                binding.etInputNama.setText("");
+                binding.rgGender.clearCheck();
+                binding.btnTglPertemuan.setText("");
+                binding.btnWaktuPertemuan.setText("");
+                binding.etKeluhanPasien.setText("");
+                binding.tvPilihDokter.setText("");
+                binding.tvPilihSpesialis.setText("");
         }
     }
 }

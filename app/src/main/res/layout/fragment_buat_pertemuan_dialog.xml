@@ -8,7 +8,17 @@
         android:layout_height="match_parent"
         android:id="@+id/dialog_detail_pertemuan"
         android:orientation="vertical"
+        android:layout_margin="@dimen/size5"
         >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Detail Pertemuan"
+            android:textSize="@dimen/size20"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/size5">
+
+        </TextView>
         <TextView
             android:id="@+id/tv_waktu_tanggal_pertemuan"
             android:layout_width="wrap_content"
@@ -16,50 +26,108 @@
             android:text="Waktu dan Tanggal Pertemuan: "
             android:textStyle="bold">
         </TextView>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_dokter_name_pertemuan_dialog"
-            android:text=""
-            android:layout_marginBottom="@dimen/size10"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal :  ">
+            </TextView>
+            <TextView
+                android:id="@+id/dialog_tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/size10">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="waktu :  ">
+            </TextView>
+            <TextView
+                android:id="@+id/dialog_waktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_pasien_name_pertemuan_dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Keterangan"
+            android:textStyle="bold">
+
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama :  ">
+            </TextView>
+            <TextView
+                android:id="@+id/dialog_nama_pasien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dokter :  ">
+            </TextView>
+            <TextView
+                android:id="@+id/dialog_nama_dokter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/size10">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spesialis :  ">
+            </TextView>
+            <TextView
+                android:id="@+id/dialog_spesialis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="">
+            </TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keluhan: "
             android:textStyle="bold">
         </TextView>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_dokter_spesialis_dialog"
-            android:text="spesialis"
-            android:layout_marginBottom="@dimen/size10"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nomor Dokter: "
-            android:textStyle="bold">
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_dokter_noHP_dialog"
+            android:id="@+id/dialog_keluhan"
             android:text="nomor HP"
             android:layout_marginBottom="@dimen/size10"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detail: "
-            android:textStyle="bold">
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_dokter_detail_dialog"
-            android:text="detail"/>
     </LinearLayout>
 </FrameLayout>

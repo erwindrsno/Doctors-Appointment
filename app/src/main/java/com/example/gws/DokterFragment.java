@@ -1,5 +1,6 @@
 package com.example.gws;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,19 +32,8 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
 
         FragmentManager fm = this.getParentFragmentManager();
 
-//        this.getParentFragmentManager().setFragmentResultListener("addToListDokter", this, new FragmentResultListener() {
-//            @Override
-//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                Log.d("debugAddDokter","masuk aman");
-//                String namaD = result.getString("namaDokter");
-//                String spesialis = result.getString("spesialis");
-//                String nomorHP = result.getString("nomorHP");
-//                String detail = result.getString("detail");
-//                Dokter dokTemp = new Dokter(namaD, spesialis, nomorHP, detail);
-//                presenter.addListDokter(dokTemp);
-//            }
-//        });
-
+        SQLiteManagerDokter sqLiteManagerDokter = new SQLiteManagerDokter(getContext());
+        Cursor data = sqLiteManagerDokter.loadDokters();
 
         this.getParentFragmentManager().setFragmentResultListener("setMessage", this, new FragmentResultListener() {
             @Override
@@ -61,6 +51,16 @@ public class DokterFragment extends Fragment implements InterfaceDokter {
         });
 
         binding.btnAddNewDokter.setOnClickListener(this::setOnclick);
+
+        while (data.moveToNext()){
+            int id = data.getInt(0);
+            String nama = data.getString(1);
+            String spesialis = data.getString(2);
+            String nomorHP = data.getString(3);
+            String detail = data.getString(4);
+            Dokter dt = new Dokter(id, nama, spesialis, nomorHP, detail);
+            presenter.addListDokter(dt);
+        }
 
         return binding.getRoot();
     }

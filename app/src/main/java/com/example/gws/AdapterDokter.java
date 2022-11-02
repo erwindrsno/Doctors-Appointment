@@ -118,7 +118,10 @@ public class AdapterDokter extends BaseAdapter {
 
         private void onClickDel(View view) {
             if(view==binding.btnDelDokter){
+                SQLiteManagerDokter sqLiteManagerDokter = new SQLiteManagerDokter(fragment.getContext());
                 presenter.delListDokter(position);
+                int id = dokterTemp.getId();
+                sqLiteManagerDokter.deleteDokterDatabase(id);
             }
             notifyDataSetChanged();
         }

@@ -43,7 +43,6 @@ public class MainPresenter {
         this.dokters.get(position).setSpesialis(spesialis);
         this.dokters.get(position).setNomorHP(nomorHP);
         this.dokters.get(position).setDetail(detail);
-        Dokter dt = new Dokter(namaD, spesialis, nomorHP, detail);
         this.uidokter.updateListDokter(dokters);
     }
 
@@ -70,6 +69,10 @@ public class MainPresenter {
     public void toggleDonePertemuan(int position){
         Log.d("debug", "dokter debug"+pertemuans.get(position).isDone());
         pertemuans.get(position).isDone();
+    }
+
+    public int getSizePertemuan(){
+        return pertemuans.size();
     }
 
 }

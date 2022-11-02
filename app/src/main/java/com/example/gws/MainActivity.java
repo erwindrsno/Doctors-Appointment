@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
     private AddDokterFragment addDokterFragment;
     private ListDokterDialogFragment listDokterDialogFragment;
     private EditDokterFragment editDokterFragment;
+    private PertemuanDialogFragment pertemuanDialogFragment;
     private FragmentManager fm;
 
     private Toolbar toolbar;
@@ -53,9 +54,10 @@ public class MainActivity extends AppCompatActivity implements InterfaceDokter, 
         //inisialisasi fragment dokter
 
         //inisialisasi fragment pertemuan
+        this.pertemuanDialogFragment = PertemuanDialogFragment.newInstance("pertemuanDialogFragment");
         this.listDokterDialogFragment = ListDokterDialogFragment.newInstance("listDokterDialogFragment", this.presenter);
         this.buatPertemuanFragment = BuatPertemuanFragment.newInstance("buatPertemuanFragment",this.presenter, this.listDokterDialogFragment);
-        this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment",this.presenter);
+        this.pertemuanFragment = PertemuanFragment.newInstance("pertemuanFragment",this.presenter, pertemuanDialogFragment);
         //inisialisasi fragment pertemuan
 
         //Toolbar

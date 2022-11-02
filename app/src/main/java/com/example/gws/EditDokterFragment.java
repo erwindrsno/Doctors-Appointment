@@ -51,11 +51,15 @@ public class EditDokterFragment extends Fragment {
 
     private void onClickSave(View view) {
         if(position>=0) {
+            SQLiteManagerDokter sqLiteManagerDokter = new SQLiteManagerDokter(getContext());
             String namaD = binding.etNamaDokter.getText().toString();
             String spesialis = binding.etSpesialisDokter.getText().toString();
             String nomorHP = binding.etNomorDokter.getText().toString();
             String detail = binding.etDetailDokter.getText().toString();
 
+            int id = presenter.getDokter(position).getId();
+
+            sqLiteManagerDokter.editDokterDatabase(id, namaD, spesialis, nomorHP, detail);
             presenter.editDokter(position, namaD, spesialis, nomorHP, detail);
 
             Bundle result = new Bundle();

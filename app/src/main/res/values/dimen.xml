@@ -4,6 +4,9 @@
     <dimen name="size200">200dp</dimen>
     <dimen name="size50">50dp</dimen>
     <dimen name="size40">40dp</dimen>
+    <dimen name="size35">35dp</dimen>
+    <dimen name="size30">30dp</dimen>
+    <dimen name="size25">25dp</dimen>
     <dimen name="size20">20dp</dimen>
     <dimen name="size15">15dp</dimen>
     <dimen name="size10">10dp</dimen>

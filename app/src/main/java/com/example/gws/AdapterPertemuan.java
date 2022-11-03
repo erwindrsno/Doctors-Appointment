@@ -101,7 +101,7 @@ public class AdapterPertemuan extends BaseAdapter{
             else if(view.getId() == binding.listItemPertemuan.getId()){
                 Bundle result = new Bundle();
                 String tanggal = pertemuanTemp.getTanggal();
-                String waktu = pertemuanTemp.getTanggal();
+                String waktu = pertemuanTemp.getWaktu();
                 String namapasien = pertemuanTemp.getNamaPasien();
                 String namadokter = pertemuanTemp.getNamaDokter();
                 String keluhan = pertemuanTemp.getKeluhan();

@@ -43,25 +43,37 @@ public class AddDokterFragment extends Fragment {
             String nomorHP = binding.etNomorDokter.getText().toString();
             String detail = binding.etDetailDokter.getText().toString();
 
-            int max = 999;
-            int min = 1;
-            int range = max - min + 1;
-            int rand = (int) (Math.random()*range)+min;
+            if(!namaD.equals("") && !spesialis.equals("") && !nomorHP.equals("")){
 
-            int id = presenter.getSizeDokter()+rand;
+                int max = 999;
+                int min = 1;
+                int range = max - min + 1;
+                int rand = (int) (Math.random()*range)+min;
 
-            sqLiteManagerDokter.addDokterToDatabase(namaD, spesialis, nomorHP, detail);
-            Dokter tempDokter = new Dokter(id, namaD,spesialis, nomorHP, detail);
-            presenter.addListDokter(tempDokter);
-            Bundle result = new Bundle();
-            result.putString("page","dokterFragment");
-            this.getParentFragmentManager().setFragmentResult("changePage",result);
+                int id = presenter.getSizeDokter()+rand;
 
-            binding.etNamaDokter.setText("");
-            binding.etSpesialisDokter.setText("");
-            binding.etNomorDokter.setText("");
-            binding.etDetailDokter.setText("");
+                sqLiteManagerDokter.addDokterToDatabase(namaD, spesialis, nomorHP, detail);
+                Dokter tempDokter = new Dokter(id, namaD,spesialis, nomorHP, detail);
+                presenter.addListDokter(tempDokter);
+                Bundle result = new Bundle();
+                result.putString("page","dokterFragment");
+                this.getParentFragmentManager().setFragmentResult("changePage",result);
 
+                binding.etNamaDokter.setText("");
+                binding.etSpesialisDokter.setText("");
+                binding.etNomorDokter.setText("");
+                binding.etDetailDokter.setText("");
+
+            }
+            else if(namaD.trim().equals("")){
+                binding.etNamaDokter.setError("Nama Dokter Tidak Boleh kosong");
+            }
+            else if(spesialis.trim().equals("")){
+                binding.etSpesialisDokter.setError("Spesialis Dokter Tidak Boleh kosong");
+            }
+            else if(nomorHP.trim().equals("")){
+                binding.etNomorDokter.setError("Nomor HP Dokter Tidak Boleh kosong");
+            }
         }
     }
 }

@@ -101,7 +101,7 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
             DatePickerDialog datePickerDialog = new DatePickerDialog(BuatPertemuanFragment.this.getActivity(),android.R.style.
                     Theme_Holo_Light_Dialog_MinWidth,setListener = new DatePickerDialog.OnDateSetListener() {
                 @Override
-                public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                     month = month + 1;
                     date = day+"/"+month+"/"+year;
 //                    try{
@@ -172,26 +172,37 @@ public class BuatPertemuanFragment extends Fragment implements View.OnClickListe
                 String namaDokter = binding.tvPilihDokter.getText().toString();
                 String spesialis = binding.tvPilihSpesialis.getText().toString();
 
-                int max = 999;
-                int min = 1;
-                int range = max - min + 1;
-                int rand = (int) (Math.random()*range)+min;
+                if(!nama.equals("") && !namaDokter.equals("") && !spesialis.equals("") && !date.equals("") && !time.equals("")){
+                    int max = 999;
+                    int min = 1;
+                    int range = max - min + 1;
+                    int rand = (int) (Math.random()*range)+min;
 
-                int id = presenter.getSizePertemuan()+rand;
+                    int id = presenter.getSizePertemuan()+rand;
 
-                sqLiteManagerPertemuan.addPertemuanDatabase(date, time, nama, namaDokter, keluhan, spesialis, gender, "N");
-                Pertemuan pertemuanTemp = new Pertemuan(id, date, time, nama, namaDokter, keluhan, spesialis, gender, false);
-                presenter.addListPertemuan(pertemuanTemp);
-                //result harus add input pasien
-                this.getParentFragmentManager().setFragmentResult("changePage", result);
+                    Log.d("time ",time);
 
-                binding.etInputNama.setText("");
-                binding.rgGender.clearCheck();
-                binding.btnTglPertemuan.setText("");
-                binding.btnWaktuPertemuan.setText("");
-                binding.etKeluhanPasien.setText("");
-                binding.tvPilihDokter.setText("");
-                binding.tvPilihSpesialis.setText("");
+                    sqLiteManagerPertemuan.addPertemuanDatabase(date, time, nama, namaDokter, keluhan, spesialis, gender, "N");
+                    Pertemuan pertemuanTemp = new Pertemuan(id, date, time, nama, namaDokter, keluhan, spesialis, gender, false);
+                    presenter.addListPertemuan(pertemuanTemp);
+                    //result harus add input pasien
+                    this.getParentFragmentManager().setFragmentResult("changePage", result);
+
+                    binding.etInputNama.setText("");
+                    binding.rgGender.clearCheck();
+                    binding.btnTglPertemuan.setText("");
+                    binding.btnWaktuPertemuan.setText("");
+                    binding.etKeluhanPasien.setText("");
+                    binding.tvPilihDokter.setText("");
+                    binding.tvPilihSpesialis.setText("");
+                }
+                else if(nama.trim().equals("")) {
+                    binding.etInputNama.setError("Nama pasien tidak boleh kosong");
+                }
+                else if(namaDokter.trim().equals("")&&spesialis.trim().equals("")){
+                    binding.tvPilihDokter.setError("Dokter tidak boleh kosong");
+                    binding.tvPilihSpesialis.setError("Spesialis tidak boleh kosong");
+                }
         }
     }
 }
